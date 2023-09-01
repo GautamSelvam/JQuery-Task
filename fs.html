@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FStore</title>
     <link rel="stylesheet" href="fs.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     
 </head>
@@ -12,20 +13,31 @@
     <div class="container-fluid">
         <div class="headerslidder">
             <div class="header">
-                <div> 
+                <div class="d-flex"> 
                     <a><button>Shop</button></a>
                     <a><button>About</button></a>
-                    <input type="text" placeholder="Search">
-                    <img src="	https://store.figma.com/cdn/shop/t/9/assets/icon-search.static.svg?v=50573694897280823451678219731">
+                    <div class="row">
+                        <div class="col">
+                            <label for="category">Filter by Category:</label>
+                            <select id="category">
+                                <option value="all">All</option>
+                                <option value="pin">Pin</option>
+                                <option value="bag">Bag</option>
+                                <option value="tee">Tee</option>
+                                <option value="hoodie">Hoodie</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- <img src="	https://store.figma.com/cdn/shop/t/9/assets/icon-search.static.svg?v=50573694897280823451678219731"> -->
                 </div>
                 <h4>THE FIGMA STORE</h4>
                 <div>
                     <select>
                         <option>United States</option>
-                        <option>United States</option>
-                        <option>United States</option>
-                        <option>United States</option>
-                        <option>United States</option>
+                        <option>India</option>
+                        <option>Australia</option>
+                        <option>Canada</option>
+                        <option>UK</option>
                     </select>
                     <a ><button>Cart</button></a>
                 </div>
@@ -99,9 +111,9 @@
             </h2>
         </div>
 
-        <div class="container">
+        <div class="container product-row">
             <div class="row ">
-                <div class="col image-container">
+                <div class="col image-container" data-category="tee">
                     <img src="https://store.figma.com/cdn/shop/products/figma-store_design-in-bloom-tee_01_1000x.jpg?v=1670516592" height="300px" id="original-image">
                     <img src="https://store.figma.com/cdn/shop/files/pattern-27_600x.png?v=1651180902" height="300px" class="hover-image" >
                     <img src="https://store.figma.com/cdn/shop/files/figma-store_design-in-bloom-tee_rollover_600x.png?v=1670516565" height="300px" class="hover-secImage">
@@ -116,7 +128,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col image-container">
+                <div class="col image-container" data-category="tape">
                     <img src="https://store.figma.com/cdn/shop/products/figma-store_design-in-bloom-tee_01_1000x.jpg?v=1670516592" height="300px" id="original-image">
                     <img src="https://store.figma.com/cdn/shop/files/pattern-27_600x.png?v=1651180902" height="300px" class="hover-image" >
                     <img src="https://store.figma.com/cdn/shop/files/figma-store_design-in-bloom-tee_rollover_600x.png?v=1670516565" height="300px" class="hover-secImage">
@@ -124,14 +136,14 @@
                     <div class="d-flex">
                         <div>
                             <p>NEW!</p>
-                            <h5>Gridlock Tape</h5>
+                            <h5>Gridlock tape</h5>
                         </div>
                         <div>
                             <p>$1</p>
                         </div>
                     </div>
                 </div>
-                <div class="col image-container">
+                <div class="col image-container" data-category="pin">
                     <img src="https://store.figma.com/cdn/shop/products/figma-store_design-in-bloom-tee_01_1000x.jpg?v=1670516592" height="300px" id="original-image">
                     <img src="https://store.figma.com/cdn/shop/files/pattern-27_600x.png?v=1651180902" height="300px" class="hover-image" >
                     <img src="https://store.figma.com/cdn/shop/files/figma-store_design-in-bloom-tee_rollover_600x.png?v=1670516565" height="300px" class="hover-secImage">
@@ -146,7 +158,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col image-container">
+                <div class="col image-container" data-category="pin">
                     <img src="https://store.figma.com/cdn/shop/products/figma-store_design-in-bloom-tee_01_1000x.jpg?v=1670516592" height="300px" id="original-image">
                     <img src="https://store.figma.com/cdn/shop/files/pattern-27_600x.png?v=1651180902" height="300px" class="hover-image" >
                     <img src="https://store.figma.com/cdn/shop/files/figma-store_design-in-bloom-tee_rollover_600x.png?v=1670516565" height="300px" class="hover-secImage">
@@ -163,7 +175,7 @@
                 </div>
             </div>
             <div class="row ">
-                <div class="col image-container">
+                <div class="col image-container" data-category="pin">
                     <img src="https://store.figma.com/cdn/shop/products/figma-store_design-in-bloom-tee_01_1000x.jpg?v=1670516592" height="300px" id="original-image">
                     <img src="https://store.figma.com/cdn/shop/files/pattern-27_600x.png?v=1651180902" height="300px" class="hover-image" >
                     <img src="https://store.figma.com/cdn/shop/files/figma-store_design-in-bloom-tee_rollover_600x.png?v=1670516565" height="300px" class="hover-secImage">
@@ -193,7 +205,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col image-container">
+                <div class="col image-container" data-category="tee">
                     <img src="https://store.figma.com/cdn/shop/products/figma-store_design-in-bloom-tee_01_1000x.jpg?v=1670516592" height="300px" id="original-image">
                     <img src="https://store.figma.com/cdn/shop/files/pattern-27_600x.png?v=1651180902" height="300px" class="hover-image" >
                     <img src="https://store.figma.com/cdn/shop/files/figma-store_design-in-bloom-tee_rollover_600x.png?v=1670516565" height="300px" class="hover-secImage">
@@ -208,7 +220,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col image-container">
+                <div class="col image-container" >
                     <img src="https://store.figma.com/cdn/shop/products/figma-store_design-in-bloom-tee_01_1000x.jpg?v=1670516592" height="300px" id="original-image">
                     <img src="https://store.figma.com/cdn/shop/files/pattern-27_600x.png?v=1651180902" height="300px" class="hover-image" >
                     <img src="https://store.figma.com/cdn/shop/files/figma-store_design-in-bloom-tee_rollover_600x.png?v=1670516565" height="300px" class="hover-secImage">
@@ -240,7 +252,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col image-container">
+                <div class="col image-container" data-category="tee">
                     <img src="https://store.figma.com/cdn/shop/products/figma-store_design-in-bloom-tee_01_1000x.jpg?v=1670516592" height="300px" id="original-image">
                     <img src="https://store.figma.com/cdn/shop/files/pattern-27_600x.png?v=1651180902" height="300px" class="hover-image" >
                     <img src="https://store.figma.com/cdn/shop/files/figma-store_design-in-bloom-tee_rollover_600x.png?v=1670516565" height="300px" class="hover-secImage">
@@ -302,7 +314,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col image-container">
+                <div class="col image-container" data-category="hoodie">
                     <img src="https://store.figma.com/cdn/shop/products/figma-store_design-in-bloom-tee_01_1000x.jpg?v=1670516592" height="300px" id="original-image">
                     <img src="https://store.figma.com/cdn/shop/files/pattern-27_600x.png?v=1651180902" height="300px" class="hover-image" >
                     <img src="https://store.figma.com/cdn/shop/files/figma-store_design-in-bloom-tee_rollover_600x.png?v=1670516565" height="300px" class="hover-secImage">
@@ -379,7 +391,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col image-container">
+                <div class="col image-container" data-category="bag">
                     <img src="https://store.figma.com/cdn/shop/products/figma-store_design-in-bloom-tee_01_1000x.jpg?v=1670516592" height="300px" id="original-image">
                     <img src="https://store.figma.com/cdn/shop/files/pattern-27_600x.png?v=1651180902" height="300px" class="hover-image" >
                     <img src="https://store.figma.com/cdn/shop/files/figma-store_design-in-bloom-tee_rollover_600x.png?v=1670516565" height="300px" class="hover-secImage">
@@ -394,7 +406,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col image-container">
+                <div class="col image-container" data-category="tee">
                     <img src="https://store.figma.com/cdn/shop/products/figma-store_design-in-bloom-tee_01_1000x.jpg?v=1670516592" height="300px" id="original-image">
                     <img src="https://store.figma.com/cdn/shop/files/pattern-27_600x.png?v=1651180902" height="300px" class="hover-image" >
                     <img src="https://store.figma.com/cdn/shop/files/figma-store_design-in-bloom-tee_rollover_600x.png?v=1670516565" height="300px" class="hover-secImage">
