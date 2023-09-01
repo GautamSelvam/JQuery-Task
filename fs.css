@@ -1,0 +1,157 @@
+.headerslidder{
+    background-color: yellow;
+    height: 500px;
+}
+
+.header{
+    padding-top: 5px;
+    display:flex;
+    justify-content: space-between;
+}
+.sliderImage{
+    display: flex;
+    overflow: hidden;
+}
+.sliderImage img{
+    margin-top:10px;
+    height:350px;
+    margin: 0px 10px;
+    border:1px solid black;
+}
+.contentText{
+    margin:80px 0px;
+}
+.semiCircle{
+    background-color: blue;
+    border-radius: 100px;
+}
+.footerBox{
+    margin-top: 50px;
+    background-color: rgb(169, 123, 211);
+}
+
+
+.sliderContainer {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+.sliderImage {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+.sliderControls {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+.sliderControls button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+
+.slider-wrapper {
+    
+    width: 111rem;
+    height: 375px;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    overflow: hidden;
+}
+
+ .slider-inner {
+    
+    position: absolute;
+    top: 0;
+    left: -10px;
+    display: flex;
+    pointer-events: none;
+    transition: .4s ease-out;
+}
+
+.slider-item {
+    margin: 0 15px;
+    width: 250px;
+    height: 375px;
+}
+
+.slider-item img {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+}
+
+.slider-wrapper .prev,
+.slider-wrapper .next {
+    position: absolute;
+    z-index: 1;
+    width: 50px;
+    height: 50px;
+    line-height: 58px;
+    border-radius: 50%;
+    color: black;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.slider-wrapper .prev {
+    left: 10px;
+}
+
+.slider-wrapper .next {
+    right: 10px;
+}
+
+
+h2 span {
+    transition: opacity 0.3s ease;
+}
+
+h2:hover span:not(.no-opacity) {
+    opacity: 0.5;
+}
+
+.image-container {
+    position: relative;
+}
+
+.hover-image,
+.hover-secImage {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 75%;
+    height: 80%;
+    
+}
+
+.image-container:hover .hover-image,
+.image-container:hover .hover-secImage {
+    
+    display: block;
+}
+
+.footerContent {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.footerContent h3 {
+    position: relative;
+    animation: moveText 20s linear infinite;
+}
+
+@keyframes moveText {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
