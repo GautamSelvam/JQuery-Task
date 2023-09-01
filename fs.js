@@ -1,3 +1,15 @@
+$(document).ready(function () {
+    $('#category').change(function () {
+        var filter = $(this).val();
+        if (filter === 'all') {
+            $('.image-container').show();
+        } else {
+            $('.image-container').hide();
+            $('.image-container[data-category="' + filter + '"]').show();
+        }
+    });
+});
+
 const prev = document.querySelector(".prev");
 const next = document.querySelector(".next");
 const slider = document.querySelector(".slider-wrapper");
