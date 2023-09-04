@@ -10,90 +10,66 @@ $(document).ready(function () {
     });
 });
 
-const prev = document.querySelector(".prev");
-const next = document.querySelector(".next");
-const slider = document.querySelector(".slider-wrapper");
-const innerSlider = document.querySelector(".slider-inner");
+ $(document).ready(function () {
+      let dragged = false;
+      let startX;
+      let x;
+      const slider = $(".slider-wrapper");
+      const innerSlider = $(".slider-inner");
 
-let dragged = false;
-let startX;
-let x;
+      slider.on("mouseenter", function () {
+        slider.css("cursor", "grab");
+      });
 
+      slider.on("mousemove", function (e) {
+        if (!dragged) return;
+        e.preventDefault();
 
-slider.addEventListener("mouseenter", () => {
-	slider.style.cursor = "grab";
-});
+        x = e.offsetX;
+        innerSlider.css("left", x - startX + "px");
 
+        checkProbs();
+      });
 
-slider.addEventListener("mousemove", (e) => {
-	if (!dragged) return;
-	e.preventDefault();
+      slider.on("mouseup", function () {
+        slider.css("cursor", "grab");
+        dragged = false;
+      });
 
-	x = e.offsetX;
+      slider.on("mousedown", function (e) {
+        dragged = true;
+        startX = e.offsetX - parseInt(innerSlider.css("left"));
+        slider.css("cursor", "grabbing");
+      });
 
-	innerSlider.style.left = `${x - startX}px`;
+      $(".prev").on("click", function () {
+        let innerSliderLeft = parseInt(innerSlider.css("left"));
+        innerSlider.css("left", innerSliderLeft + 265 + "px");
 
-	checkProbs();
-});
-slider.addEventListener("mouseup", () => {
-	slider.style.cursor = "grab";
-	dragged = false;
-});
-slider.addEventListener("mousedown", (e) => {
-	dragged = true;
-	startX = e.offsetX - innerSlider.offsetLeft;
-	slider.style.cursor = "grabbing";
-});
+        checkProbs();
+      });
 
-slider.addEventListener(
-	"touchstart",
-	(e) => {
-		dragged = true;
-		startX = e.targetTouches[0].clientX - innerSlider.offsetLeft;
+      $(".next").on("click", function () {
+        let innerSliderLeft = parseInt(innerSlider.css("left"));
+        innerSlider.css("left", innerSliderLeft - 265 + "px");
 
-		checkProbs();
-	},
-	{ passive: true }
-);
+        checkProbs();
+      });
 
-slider.addEventListener(
-	"touchmove",
-	(e) => {
-		if (!dragged) return;
-		x = e.targetTouches[0].clientX;
+      const checkProbs = () => {
+        let outer = slider[0].getBoundingClientRect();
+        let inner = innerSlider[0].getBoundingClientRect();
 
-		innerSlider.style.left = `${x - startX}px`;
+        if (parseInt(innerSlider.css("left")) > 0)
+          innerSlider.css("left", "-10px");
 
-		checkProbs();
-	},
-	{ passive: true }
-);
-
-prev.addEventListener("click", () => {
-	let innerSliderLeft = innerSlider.style.left;
-	innerSlider.style.left =
-		parseInt(innerSliderLeft.replace("px", "")) + 265 + "px";
-
-	checkProbs();
-});
-
-next.addEventListener("click", () => {
-	let innerSliderLeft = innerSlider.style.left;
-	innerSlider.style.left = innerSliderLeft.replace("px", "") - 265 + "px";
-
-	checkProbs();
-});
-
-const checkProbs = () => {
-	let outer = slider.getBoundingClientRect();
-	let inner = innerSlider.getBoundingClientRect();
-
-	if (parseInt(innerSlider.style.left) > 0) innerSlider.style.left = "-10px";
-
-	if (inner.right < outer.right)
-		innerSlider.style.left = `-${inner.width - outer.width - 10}px`;
-};
-
+        if (inner.right < outer.right)
+          innerSlider.css(
+            "left",
+            -inner.width + outer.width + 10 + "px"
+          );
+      };
+    });
 
 $(document).ready(function() {
     animateText();
